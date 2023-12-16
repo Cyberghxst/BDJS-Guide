@@ -1,0 +1,18 @@
+{
+  "name": "bdjs-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "docsify serve docs"
+  },
+  "keywords": [],
+  "author": "Cyberghxst",
+  "license": "MIT",
+  "dependencies": {
+    "docsify-cli": "^4.4.4"
+  },
+  "devDependencies": {
+    "miduco": "^1.0.2"
+  }
+}

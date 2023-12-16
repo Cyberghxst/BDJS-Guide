@@ -1,0 +1,29 @@
+{
+    "data": [
+        {
+            "title": "Application Commands",
+            "description": "Using application commands with ease.",
+            "subtitles": []
+        },
+        {
+            "title": "Commands",
+            "description": "Adding commands with ease.",
+            "subtitles": []
+        },
+        {
+            "title": "Custom Functions",
+            "description": "Creating custom functions with ease.",
+            "subtitles": []
+        },
+        {
+            "title": "Events",
+            "description": "Declaring events with ease.",
+            "subtitles": []
+        },
+        {
+            "title": "Plugins",
+            "description": "Creating your own plugins.",
+            "subtitles": []
+        }
+    ]
+}
