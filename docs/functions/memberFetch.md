@@ -3,11 +3,11 @@ Fetch a guild member property.
 ## Usage
 > `$memberFetch[property;member id;guild id?]`
 ## Parameters
-|   Name    |                      Description                      |  Type  |  Default value   |
-|-----------|-------------------------------------------------------|--------|------------------|
-| Property  | Member property name.                                 | String | none             |
-| Member ID | Guild member ID to fetch the property from.           | String | d.ctx?.user?.id  |
-| Guild ID  | The ID of the guild where member should be retrieved. | String | d.ctx?.guild?.id |
+|   Name    |                      Description                      |  Type  |   Default value   |
+|-----------|-------------------------------------------------------|--------|-------------------|
+| Property  | Member property name.                                 | String | none              |
+| Member ID | Guild member ID to fetch the property from.           | String | d.ctx?.author?.id |
+| Guild ID  | The ID of the guild where member should be retrieved. | String | d.ctx?.guild?.id  |
 
 ## Source Code
 ```ts
@@ -47,7 +47,7 @@ export default new BaseFunction({
             description: 'Guild member ID to fetch the property from.',
             required: true,
             resolver: 'String',
-            value: 'd.ctx?.user?.id'
+            value: 'd.ctx?.author?.id'
         },
         {
             name: 'Guild ID',
@@ -57,7 +57,7 @@ export default new BaseFunction({
             value: 'd.ctx?.guild?.id'
         }
     ],
-    code: async function(d, [property, memberID = d.ctx?.user?.id, guildID = d.ctx?.guild?.id]) {
+    code: async function(d, [property, memberID = d.ctx?.author?.id, guildID = d.ctx?.guild?.id]) {
         if (property === undefined) throw new d.error(d, 'required', 'Property Name', d.function?.name!)
         if (memberID === undefined) throw new d.error(d, 'invalid', 'member ID', d.function?.name!)
         if (guildID === undefined) throw new d.error(d, 'invalid', 'Guild ID', d.function?.name!)

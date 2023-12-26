@@ -3,10 +3,10 @@ Get an user property.
 ## Usage
 > `$userGet[property;user id]`
 ## Parameters
-|   Name   |            Description            |  Type  |  Default value  |
-|----------|-----------------------------------|--------|-----------------|
-| Property | User property name.               | String | none            |
-| User ID  | User ID to get the property from. | String | d.ctx?.user?.id |
+|   Name   |            Description            |  Type  |   Default value   |
+|----------|-----------------------------------|--------|-------------------|
+| Property | User property name.               | String | none              |
+| User ID  | User ID to get the property from. | String | d.ctx?.author?.id |
 
 ## Source Code
 ```ts
@@ -29,10 +29,10 @@ export default new BaseFunction({
             description: 'User ID to get the property from.',
             required: true,
             resolver: 'String',
-            value: 'd.ctx?.user?.id'
+            value: 'd.ctx?.author?.id'
         }
     ],
-    code: async function(d, [property, memberID = d.ctx?.user?.id]) {
+    code: async function(d, [property, memberID = d.ctx?.author?.id]) {
         if (property === undefined) throw new d.error(d, 'required', 'Property Name', d.function?.name!)
         if (memberID === undefined) throw new d.error(d, 'invalid', 'User ID', d.function?.name!)
 
