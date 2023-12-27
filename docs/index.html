@@ -18,8 +18,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
     .markdown-section pre>code {
-	    font-family: 'JetBrains Mono', monospace;
-      font-size: .9rem;
+	    font-family: 'JetBrains Mono', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: .8rem;
     }
   </style>
 </head>
@@ -34,27 +34,30 @@
       },*/
       loadSidebar: 'sidebar.md',
       darklightTheme: {
-        siteFont : 'Product Sans, Montserrat, Poppins',
+        siteFont : 'Poppins',
         defaultTheme : 'dark',
         codeFontFamily : 'JetBrains Mono, Consolas',
         bodyFontSize: '17px',
         dark: {
-          textColor: "#FFFFFF",
-          accent: "#BDFFFF",
-          toogleBackground : '#ff0000',
-          coverBackground: "#0c2236",
-          borderColor : '#0d2538',
-          codeTypeColor : '#FF000',
-          codeTextColor : '#FF000',
-          borderColor: "#0d2538",
-          highlightColor: "#BDFFFF",
+          accent: '#35D0BE',
+          background: '#1B1A1F',
+          borderColor: '#1B3031',
+          // blockQuoteColor: '#272A2F',
+          codeBackgroundColor: '#161618',
+          codeTypeColor: '#FFFF9',
+          highlightColor: '#35D0BE',
+          sidebarSublink: '#96979C',
           toogleImage: "url(https://unpkg.com/docsify-darklight-theme@3/icons/sun.svg)",
         },
         light: {
-          accent: "#001739",
-          codeBackgroundColor: '#E3FFFF',
-          coverBackground: "#BDFFFF",
-          codeTextColor: '#000000',
+          accent: '#35D0BE',
+          background: '#FFFFFF',
+          borderColor: '#1B3031',
+          // blockQuoteColor: '#272A2F',
+          codeBackgroundColor: '#161618',
+          codeTypeColor: '#FFFF9',
+          highlightColor: '#35D0BE',
+          sidebarSublink: '#96979C',
           toogleImage: "url(https://unpkg.com/docsify-darklight-theme@3/icons/moon.svg)",
         },
       }
