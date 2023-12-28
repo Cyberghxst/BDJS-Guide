@@ -30,5 +30,3 @@ module.exports['data'] = {
     .setDescription('Returns the client websocket latency.')
 }
 ```
-
-### ⚠️ Currently "SUBCOMMANDS" and "SUBCOMMAND GROUPS" aren't supported.

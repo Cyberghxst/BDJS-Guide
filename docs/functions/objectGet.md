@@ -3,10 +3,10 @@ Get a property value from an object.
 ## Usage
 > `$objectGet[name;path]`
 ## Parameters
-| Name |           Description           |  Type  | Default value |
-|------|---------------------------------|--------|---------------|
-| Name | The name for this object.       | String | none          |
-| Path | Property path to set the value. | String | none          |
+| Name |        Description         |  Type  | Default value |
+|------|----------------------------|--------|---------------|
+| Name | The name for this object.  | String | none          |
+| Path | Property path to retrieve. | String | none          |
 
 ## Source Code
 ```ts
@@ -25,7 +25,7 @@ export default new BaseFunction({
         },
         {
             name: 'Path',
-            description: 'Property path to set the value.',
+            description: 'Property path to retrieve.',
             required: true,
             resolver: 'String',
             value: 'none'
