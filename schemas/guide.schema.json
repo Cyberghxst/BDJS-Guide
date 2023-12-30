@@ -24,6 +24,11 @@
             "title": "Plugins",
             "description": "Creating your own plugins.",
             "subtitles": []
+        },
+        {
+            "title": "Variable",
+            "description": "Use variables like a master.",
+            "subtitles": []
         }
     ]
 }
