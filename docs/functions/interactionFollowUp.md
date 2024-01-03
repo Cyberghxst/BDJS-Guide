@@ -1,65 +1,11 @@
 # $interactionFollowUp
 Follow up an interaction reply.
 ## Usage
-> `$interactionFollowUp[message;ephemeral?;return id?]`
+> `$interactionFollowUp[message;ephemeral?;fetchReply?;returnId?]`
 ## Parameters
-|   Name    |            Description             |  Type   | Default value |
-|-----------|------------------------------------|---------|---------------|
-| Message   | The message to be sent.            | String  | none          |
-| Ephemeral | Set the reply as ephemeral or not. | Boolean | none          |
-| Return ID | Returns the interaction reply ID.  | Boolean | false         |
-
-## Source Code
-```ts
-import { BaseFunction } from '../structures/Function'
-import { BaseInteraction } from 'discord.js'
-import { inspect } from 'util'
-
-export default new BaseFunction({
-    description: 'Follow up an interaction reply.',
-    parameters: [
-        {
-            name: 'Message',
-            description: 'The message to be sent.',
-            required: true,
-            compile: false,
-            value: 'none'
-        },
-        {
-            name: 'Ephemeral',
-            description: 'Set the reply as ephemeral or not.',
-            required: false,
-            resolver: 'Boolean',
-            value: 'none'
-        },
-        {
-            name: 'Return ID',
-            description: 'Returns the interaction reply ID.',
-            required: false,
-            resolver: 'Boolean',
-            value: 'false'
-        }
-    ],
-    code: async function(d, [message, ephemeral = 'false', returnId = 'false']) {
-        if (!(d.ctx?.raw instanceof BaseInteraction)) throw new d.error(d, 'disallowed', d.function?.name!, 'interactions')
-        if (!d.ctx?.raw.isRepliable()) throw new d.error(d, 'custom', `${d.commandType} is not repliable.`)
-        if (!d.ctx?.raw.replied) throw new d.error(d, 'custom', 'Cannot follow up an interaction that is not replied.')
-
-        const result = await d.reader.compile(message, d)
-        if (result?.code) d.container.pushContent(result.code)
-
-        if (ephemeral === 'true') (d.container as any).ephemeral = true
-
-        const data = await d.ctx?.raw.followUp(d.container).then((res) => {
-            d.container.clear()
-            return res
-        }).catch(e => {
-            throw new d.error(d, 'custom', inspect(e, { depth: 4 }))
-        })
-
-        if (data && data.id && returnId === 'true') return data.id
-    }
-})
-
-```
-Available on GitHub: [Click Here](https://github.com/Cyberghxst/bdjs/blob/v1/src/functions/interactionFollowUp.ts)
+|    Name     |            Description             |  Type   | Default value |
+|-------------|------------------------------------|---------|---------------|
+| Message     | The message to be sent.            | String  | none          |
+| Ephemeral   | Set the reply as ephemeral or not. | Boolean | none          |
+| Fetch Reply | Whether fetch message reply.       | Boolean | true          |
+| Return ID   | Returns the interaction reply ID.  | Boolean | false         |

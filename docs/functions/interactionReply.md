@@ -1,56 +1,11 @@
 # $interactionReply
 Replies an interaction.
 ## Usage
-> `$interactionReply[message;return id?]`
+> `$interactionReply[message;ephemeral?;fetchReply?;returnId?]`
 ## Parameters
-|   Name    |            Description            |  Type   | Default value |
-|-----------|-----------------------------------|---------|---------------|
-| Message   | The message to be sent.           | String  | none          |
-| Return ID | Returns the interaction reply ID. | Boolean | false         |
-
-## Source Code
-```ts
-import { BaseFunction } from '../structures/Function'
-import { BaseInteraction } from 'discord.js'
-import { inspect } from 'util'
-
-export default new BaseFunction({
-    description: 'Replies an interaction.',
-    parameters: [
-        {
-            name: 'Message',
-            description: 'The message to be sent.',
-            required: true,
-            compile: false,
-            value: 'none'
-        },
-        {
-            name: 'Return ID',
-            description: 'Returns the interaction reply ID.',
-            required: false,
-            compile: true,
-            resolver: 'Boolean',
-            value: 'false'
-        }
-    ],
-    code: async function(d, [message, returnId = 'false']) {
-        if (!(d.ctx?.raw instanceof BaseInteraction)) throw new d.error(d, 'disallowed', d.function?.name!, 'interactions')
-        if (!d.ctx?.raw.isRepliable()) throw new d.error(d, 'custom', `${d.commandType} is not repliable.`)
-        if (d.ctx?.raw.replied) throw new d.error(d, 'custom', 'Cannot reply an interaction that is already replied.')
-
-        const result = await d.reader.compile(message, d)
-        if (result?.code) d.container.pushContent(result.code)
-
-        const data = await d.ctx?.raw.reply(d.container).then((res) => {
-            d.container.clear()
-            return res
-        }).catch(e => {
-            throw new d.error(d, 'custom', inspect(e, { depth: 4 }))
-        })
-
-        if (data && data.id && returnId === 'true') return data.id
-    }
-})
-
-```
-Available on GitHub: [Click Here](https://github.com/Cyberghxst/bdjs/blob/v1/src/functions/interactionReply.ts)
+|    Name     |            Description             |  Type   | Default value |
+|-------------|------------------------------------|---------|---------------|
+| Message     | The message to be sent.            | String  | none          |
+| Ephemeral   | Set the reply as ephemeral or not. | Boolean | none          |
+| Fetch Reply | Whether fetch message reply.       | Boolean | true          |
+| Return ID   | Returns the interaction reply ID.  | Boolean | false         |
