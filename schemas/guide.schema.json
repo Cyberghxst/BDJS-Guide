@@ -26,6 +26,11 @@
             "subtitles": []
         },
         {
+            "title": "Properties",
+            "description": "Properties for BDJS function getters.",
+            "subtitles": []
+        },
+        {
             "title": "Variable",
             "description": "Use variables like a master.",
             "subtitles": []

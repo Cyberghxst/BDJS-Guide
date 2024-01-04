@@ -6,7 +6,8 @@
 - - - [Custom Functions](guides/custom-functions.md)
 - - - [Events](guides/events.md)
 - - - [Plugins](guides/plugins.md)
-- - - [Variables](guides/variables.md)
+- - - [Properties](guides/properties.md)
+- - - [Variable](guides/variable.md)
 
 **Functions**
 * [$addReactions](functions/addReactions.md)
